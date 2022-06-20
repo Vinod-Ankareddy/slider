@@ -1,0 +1,73 @@
+<html>
+<head>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <link href="css/responsive.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="slidershow">
+        <div class="sliders">
+            <div class="slider-childs" id="slider-childs">
+                <div class="slider-child">Img - 1</div>
+                <div class="slider-child">Img - 2</div>
+                <div class="slider-child">Img - 3</div>
+                <div class="slider-child">Img - 4</div>
+                <div class="slider-child">Img - 5</div>
+                <div class="slider-child">Img - 6</div>
+                <div class="slider-child">Img - 7</div>
+                <div class="slider-child">Img - 8</div>
+                <div class="slider-child">Img - 9</div>
+                <div class="slider-child">Img - 10</div>
+                <div class="slider-child">Img - 11</div>
+                <div class="slider-child">Img - 12</div>
+                <div class="slider-child">Img - 13</div>
+                <div class="slider-child">Img - 14</div>
+            </div>
+        </div>
+        <div class="arrow left-arrow" onClick="moveLeft()">&#10094;</div>
+        <div class="arrow right-arrow" onClick="moveRight()">&#10095;</div>
+    </div>
+
+    <!-- <script src="js/script.js"></script> -->
+    <script>
+        const totalWidth = document.getElementById("slider-childs").offsetWidth;
+        console.log(totalWidth);
+        function moveLeft(){
+            if((window.screen.width >= 320) && (window.screen.width <= 480)){
+                document.getElementById("slider-childs").scrollLeft -= totalWidth/2;
+            }else if((window.screen.width <= 1024) && (window.screen.width >= 768)){
+                document.getElementById("slider-childs").scrollLeft -= totalWidth/4;
+                console.log(totalWidth/4);
+            }else if((window.screen.width >= 1224)){  
+                document.getElementById("slider-childs").scrollLeft -= totalWidth/4;
+                console.log(totalWidth/4);
+            }else if((window.screen.width >= 1824)){
+            }
+        }
+        function moveRight(){
+            if((window.screen.width >= 320) && (window.screen.width <= 480)){
+                document.getElementById("slider-childs").scrollLeft += totalWidth;
+            }else if((window.screen.width <= 1024) && (window.screen.width >= 768)){
+                document.getElementById("slider-childs").scrollLeft += totalWidth/4;
+                console.log(totalWidth/4);
+            }else if((window.screen.width >= 1224)){  
+                document.getElementById("slider-childs").scrollLeft += totalWidth/4;
+                console.log(totalWidth/4);
+            }else if((window.screen.width >= 1824)){
+            }
+        }
+
+        document.onkeydown = function(evt) {
+            evt = evt || window.event;
+            switch (evt.keyCode) {
+                case 37:
+                    moveLeft();
+                    break;
+                case 39:
+                    moveRight();
+                    break;
+            }
+        };
+    </script>
+</body>
+</html>
